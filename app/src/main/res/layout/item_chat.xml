@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:background="?android:attr/selectableItemBackground">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/avatarContainer"
+        android:layout_width="57dp"
+        android:layout_height="57dp"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="0dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/Avatar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            tools:src="@tools:sample/avatars" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="#222222"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif-medium"
+        android:textStyle="bold"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/avatarContainer"
+        app:layout_constraintTop_toTopOf="@id/avatarContainer"
+        app:layout_constraintEnd_toStartOf="@+id/Verified"
+        tools:text="Arnold Schwarzenegger" />
+
+    <ImageView
+        android:id="@+id/Verified"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="4dp"
+        android:src="@drawable/ic_badge_verified"
+        app:layout_constraintBottom_toBottomOf="@id/Title"
+        app:layout_constraintTop_toTopOf="@id/Title"
+        app:layout_constraintStart_toEndOf="@id/Title"
+        app:layout_constraintEnd_toStartOf="@+id/Scam" />
+
+    <TextView
+        android:id="@+id/Scam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:paddingHorizontal="2dp"
+        android:textColor="#E64646"
+        android:background="@drawable/ic_badge_scam"
+        app:layout_constraintBottom_toBottomOf="@id/Title"
+        app:layout_constraintTop_toTopOf="@id/Title"
+        app:layout_constraintStart_toEndOf="@id/Verified"
+        app:layout_constraintEnd_toStartOf="@+id/Mute" />
+
+    <ImageView
+        android:id="@+id/Mute"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="4dp"
+        android:src="@drawable/ic_badge_muted"
+        app:layout_constraintBottom_toBottomOf="@id/Title"
+        app:layout_constraintTop_toTopOf="@id/Title"
+        app:layout_constraintStart_toEndOf="@id/Scam"
+        app:layout_constraintEnd_toStartOf="@+id/Delivered" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/rightGroupBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="start"
+        app:constraint_referenced_ids="Delivered,Time" />
+
+    <ImageView
+        android:id="@+id/Delivered"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/Time"
+        app:layout_constraintEnd_toStartOf="@+id/Time"
+        app:layout_constraintTop_toTopOf="@+id/Time"
+        android:src="@drawable/ic_status_read" />
+
+    <TextView
+        android:id="@+id/Time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/Title"
+        tools:text="14:45" />
+
+    <TextView
+        android:id="@+id/LastMessage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="#8D8E90"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/Title"
+        app:layout_constraintTop_toBottomOf="@+id/Title"
+        tools:text="I'll be back." />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
